@@ -4,15 +4,13 @@
  */
 
 import React from 'react';
-import { Router, Route, Link, hashHistory } from 'react-router';
+import { Router, Route, Link, IndexLink, hashHistory } from 'react-router';
 import AppBar from 'material-ui/AppBar';
 import Drawer from 'material-ui/Drawer';
 import MenuItem from 'material-ui/MenuItem';
 import RaisedButton from 'material-ui/RaisedButton';
 import IconButton from 'material-ui/IconButton';
 import NavigationClose from 'material-ui/svg-icons/navigation/close';
-import Home from './Home';
-import Guild from './Guild';
 
 
 class Main extends React.Component {
@@ -38,14 +36,23 @@ class Main extends React.Component {
     });
   }
 
+  handleTitleTap() {
+    hashHistory.push('/');
+  }
+
   render() {
 
     return (
       <div>
         <AppBar
           title="Lewt"
+          titleStyle={{
+            "cursor": "pointer",
+            "userSelect": "none"
+          }}
           iconClassNameRight="muidocs-icon-navigation-expand-more"
           onLeftIconButtonTouchTap={this.handleTouchTap}
+          onTitleTouchTap={this.handleTitleTap}
         />
         <Drawer
          docked={false}
@@ -56,17 +63,24 @@ class Main extends React.Component {
         >
           <AppBar
             title="Lewt"
-            iconElementLeft={<IconButton><NavigationClose /></IconButton>}
-            onTouchTap={this.handleRequestClose}
+            iconElementLeft={
+              <IconButton onTouchTap={this.handleRequestClose}><NavigationClose /></IconButton>
+            }
           />
-          <MenuItem>Menu Item</MenuItem>
-          <MenuItem>Menu Item 2</MenuItem>
+          <MenuItem
+            linkButton
+            containerElement={<IndexLink to="/" />}
+          >
+            Home
+          </MenuItem>
+          <MenuItem
+            linkButton
+            containerElement={<Link to="/guild" />}
+          >
+            Guild
+          </MenuItem>
         </Drawer>
-        <Router history={hashHistory}>
-          <Route path="/" component={Home}/>
-          <Route path="guild" component={Guild}/>
-        </Router>
-
+        {this.props.children}
 
       </div>
     );

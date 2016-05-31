@@ -1,8 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { Router, Route, Link, hashHistory, IndexRoute } from 'react-router';
 import injectTapEventPlugin from 'react-tap-event-plugin';
 import Main from './Main'; // Our custom react component
-import { Router, Route, Link, browserHistory } from 'react-router';
+import Home from './Home'; // Our custom react component
+import Guild from './Guild'; // Our custom react component
 
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
@@ -19,6 +21,11 @@ injectTapEventPlugin();
 ReactDOM.render(
 
   <MuiThemeProvider muiTheme={muiTheme}>
-    <Main />
+    <Router history={hashHistory}>
+      <Route path="/" component={Main}>
+        <IndexRoute component={Home}/>
+        <Route path="guild" component={Guild}/>
+      </Route>
+    </Router>
   </MuiThemeProvider>
   , document.getElementById('app'));
