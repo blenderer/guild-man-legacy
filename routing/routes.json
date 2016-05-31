@@ -1,0 +1,12 @@
+[
+  {
+    "routeName": "home",
+    "prettyName": "Home",
+    "path": "/"
+  },
+  {
+    "routeName": "guild",
+    "prettyName": "Guild",
+    "path": "/guild"
+  },
+]

@@ -1,11 +1,7 @@
-/**
- * In this file, we create a React component
- * which incorporates components providedby material-ui.
- */
-
 import React from 'react';
 import { Link, IndexLink } from 'react-router';
 import MenuItem from 'material-ui/MenuItem';
+import routes from '../routing/routes';
 
 class NavMenu extends React.Component {
   constructor(props, context) {
@@ -15,20 +11,21 @@ class NavMenu extends React.Component {
 
   render() {
 
+    let menuItems = routes.map((route) => {
+      return (
+        <MenuItem
+          linkButton
+          containerElement={<IndexLink to={route.path} />}
+          key={route.routeName}
+        >
+          {route.prettyName}
+        </MenuItem>
+      );
+    });
+
     return (
       <div>
-        <MenuItem
-          linkButton
-          containerElement={<IndexLink to="/" />}
-        >
-          Home
-        </MenuItem>
-        <MenuItem
-          linkButton
-          containerElement={<Link to="/guild" />}
-        >
-          Guild
-        </MenuItem>
+        {menuItems}
       </div>
     );
   }
