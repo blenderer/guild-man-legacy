@@ -4,13 +4,13 @@
  */
 
 import React from 'react';
-import { Router, Route, Link, IndexLink, hashHistory } from 'react-router';
+import { hashHistory } from 'react-router';
 import AppBar from 'material-ui/AppBar';
 import Drawer from 'material-ui/Drawer';
-import MenuItem from 'material-ui/MenuItem';
 import RaisedButton from 'material-ui/RaisedButton';
 import IconButton from 'material-ui/IconButton';
 import NavigationClose from 'material-ui/svg-icons/navigation/close';
+import NavMenu from './NavMenu/NavMenu.js';
 
 
 class Main extends React.Component {
@@ -67,18 +67,7 @@ class Main extends React.Component {
               <IconButton onTouchTap={this.handleRequestClose}><NavigationClose /></IconButton>
             }
           />
-          <MenuItem
-            linkButton
-            containerElement={<IndexLink to="/" />}
-          >
-            Home
-          </MenuItem>
-          <MenuItem
-            linkButton
-            containerElement={<Link to="/guild" />}
-          >
-            Guild
-          </MenuItem>
+          <NavMenu />
         </Drawer>
         {this.props.children}
 
