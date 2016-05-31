@@ -1,0 +1,35 @@
+[
+  {
+    "name": "Gandalf the Grey",
+    "race": "Human",
+    "class": "Wizard",
+    "level": 24,
+    "gender": "Male",
+    "traits": []
+  },
+  ,
+  {
+    "name": "Daaai",
+    "race": "Elf",
+    "class": "Hunter",
+    "level": 4,
+    "gender": "Female",
+    "traits": []
+  },
+  {
+    "name": "Uglúk",
+    "race": "Orc",
+    "class": "Berserker",
+    "level": 14,
+    "gender": "Male",
+    "traits": []
+  },
+  {
+    "name": "Benediere",
+    "race": "Harpee",
+    "class": "Bard",
+    "level": 2,
+    "gender": "Female",
+    "traits": []
+  }
+]

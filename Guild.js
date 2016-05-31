@@ -4,6 +4,8 @@
  */
 
 import React from 'react';
+import AdventurerCollection from './AdventurerCollection';
+import adventurers from './testdata/guild';
 
 class Guild extends React.Component {
   constructor(props, context) {
@@ -14,7 +16,10 @@ class Guild extends React.Component {
   render() {
 
     return (
-      <h1>I am Guild</h1>
+      <div>
+        <h1>I am Guild</h1>
+        <AdventurerCollection adventurers={adventurers}/>
+      </div>
     );
   }
 }
