@@ -11,7 +11,10 @@ class AdventurerCollection extends React.Component {
     let adventurers = this.props.adventurers.map((adventurer) => {
 
       return (
-        <li key={adventurer.name}>{adventurer.name}</li>
+        <li key={adventurer.name}>
+          <strong>{adventurer.name}</strong>: lv {adventurer.level + ' '}
+          {adventurer.race} {adventurer.class}
+        </li>
       );
     });
 
