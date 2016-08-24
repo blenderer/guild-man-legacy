@@ -5,7 +5,10 @@
     "class": "Wizard",
     "level": 24,
     "gender": "Male",
-    "traits": []
+    "traits": [
+      "Arcane",
+      "Softie"
+    ]
   },
   ,
   {
@@ -14,7 +17,10 @@
     "class": "Hunter",
     "level": 4,
     "gender": "Female",
-    "traits": []
+    "traits": [
+      "Sniper",
+      "Lovefool"
+    ]
   },
   {
     "name": "Uglúk",
@@ -22,7 +28,10 @@
     "class": "Berserker",
     "level": 14,
     "gender": "Male",
-    "traits": []
+    "traits": [
+      "Thickskin",
+      "Nearsighted"
+    ]
   },
   {
     "name": "Benediere",
@@ -30,6 +39,9 @@
     "class": "Bard",
     "level": 2,
     "gender": "Female",
-    "traits": []
+    "traits": [
+      "Clever",
+      "Coward"
+    ]
   }
 ]

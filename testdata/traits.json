@@ -1,0 +1,88 @@
+{
+  "Thickskin": {
+    "description": "Attacks often bounce off of this hero's skin",
+    "statmods": [
+      {
+        "stat": "ac",
+        "mod": 1
+      }
+    ]
+  },
+  "Sniper": {
+    "description": "Never misses a shot",
+    "statmods": [
+      {
+        "stat": "hit",
+        "mod": 2
+      }
+    ],
+    "requirements": [
+      {
+        "type": "item",
+        "slot": "weapon",
+        "itemRequirements": [
+          "ranged"
+        ]
+      }
+    ]
+  },
+  "Arcane": {
+    "description": "Can wield Arcane Magic"
+  },
+  "Lovefool": {
+    "description": "Often falls in love"
+  },
+  "Softie": {
+    "description": "This hero's skin is a magnet for weapon attacks",
+    "statmods": [
+      {
+        "stat": "ac",
+        "mod": -1
+      }
+    ]
+  },
+  "Nearsighted": {
+    "description": "Trees appear as green, blurry smudges to this hero",
+    "statmods": [
+      {
+        "stat": "hit",
+        "mod": -2
+      }
+    ],
+    "requirements": [
+      {
+        "type": "item",
+        "slot": "weapon",
+        "itemRequirements": [
+          "ranged"
+        ]
+      }
+    ]
+  },
+  "Clever": {
+    "description": "Words roll out of the tongue and become sense",
+    "statmods": [
+      {
+        "stat": "cha",
+        "mod": 2
+      }
+    ]
+  },
+  "Coward": {
+    "description": "The best combat position is the fetal one",
+    "statmods": [
+      {
+        "stat": "skillroll",
+        "mod": 2
+      }
+    ],
+    "requirements": [
+      {
+        "type": "event",
+        "eventRequirements": [
+          "combat"
+        ]
+      }
+    ]
+  }
+}

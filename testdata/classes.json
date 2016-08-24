@@ -1,0 +1,50 @@
+{
+  "Wizard": {
+    "statmods": [
+      {
+        "stat": "int",
+        "mod": 3
+      },
+      {
+        "stat": "con",
+        "mod": -1
+      }
+    ]
+  },
+  "Hunter": {
+    "statmods": [
+      {
+        "stat": "dex",
+        "mod": 2
+      },
+      {
+        "stat": "wis",
+        "mod": 1
+      }
+    ]
+  },
+  "Berserker": {
+    "statmods": [
+      {
+        "stat": "con",
+        "mod": -1
+      },
+      {
+        "stat": "str",
+        "mod": 2
+      },
+      {
+        "stat": "dex",
+        "mod": 1
+      }
+    ]
+  },
+  "Bard": {
+    "statmods": [
+      {
+        "stat": "cha",
+        "mod": 4
+      }
+    ]
+  }
+}
