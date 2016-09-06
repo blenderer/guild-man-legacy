@@ -7,13 +7,15 @@ import skills from "../testdata/skills";
 import stats from "../testdata/stats";
 import defaultCharacterProps from "../testdata/characterprops";
 import characterOverrideValidations from "../testdata/characteroverridevalidations";
+import Roll from "./Roll";
 
 class RandomCharacter  {
   constructor(overrides = {}) {
-    this.overrides = overrides;
-
-    // apply overrides
-    this.applyOverrides();
+    this.stats = {};
+    this.name = null;
+    this.level = null;
+    this.class = null;
+    this.race = null;
 
 
     if (!this.name) {
@@ -37,14 +39,21 @@ class RandomCharacter  {
       this.race = raceArray[racePick];
     }
 
+    // roll stats using 3d6 method
+    for (var stat in stats) {
+      this.stats[stat] = new Roll("3d6").total;
+    }
 
+    // apply overrides
+    this.applyOverrides(overrides);
   }
 
 
-  applyOverrides() {
-    for (var prop in this.overrides) {
+  applyOverrides(overrides) {
+    for (var prop in overrides) {
+
       if (characterOverrideValidations[prop]) {
-        this[prop] = this.overrides[prop]
+        this[prop] = overrides[prop]
       }
     }
   }

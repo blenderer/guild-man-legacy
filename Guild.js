@@ -5,12 +5,14 @@
 
 import React from 'react';
 import AdventurerCollection from './AdventurerCollection';
-import adventurers from './testdata/guild';
+// import adventurers from './testdata/guild';
 import RandomCharacter from './utilityclasses/RandomCharacter';
 
-let bob = new RandomCharacter();
 
-console.log(bob);
+let adventurers = [];
+for (var i = 0; i < 5; i++) {
+  adventurers.push(new RandomCharacter());
+}
 
 class Guild extends React.Component {
   constructor(props, context) {
@@ -22,7 +24,7 @@ class Guild extends React.Component {
 
     return (
       <div>
-        <h1>I am Guild</h1>
+        <h1>Current Guild Members:</h1>
         <AdventurerCollection adventurers={adventurers}/>
       </div>
     );
