@@ -1,0 +1,50 @@
+{
+  "Human": {
+    "statmods": [
+      {
+        "stat": "int",
+        "mod": 3
+      },
+      {
+        "stat": "con",
+        "mod": -1
+      }
+    ]
+  },
+  "Elf": {
+    "statmods": [
+      {
+        "stat": "dex",
+        "mod": 2
+      },
+      {
+        "stat": "wis",
+        "mod": 1
+      }
+    ]
+  },
+  "Orc": {
+    "statmods": [
+      {
+        "stat": "con",
+        "mod": -1
+      },
+      {
+        "stat": "str",
+        "mod": 2
+      },
+      {
+        "stat": "dex",
+        "mod": 1
+      }
+    ]
+  },
+  "Gnome": {
+    "statmods": [
+      {
+        "stat": "cha",
+        "mod": 4
+      }
+    ]
+  }
+}

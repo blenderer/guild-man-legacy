@@ -73,7 +73,7 @@
     "statmods": [
       {
         "stat": "skillroll",
-        "mod": 2
+        "mod": -2
       }
     ],
     "requirements": [

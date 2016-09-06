@@ -1,0 +1,47 @@
+{
+  "Athletics": {
+    "modifier": "str"
+  },
+  "Intimidation": {
+    "modifier": "str"
+  },
+  "Melee": {
+    "modifier": "str"
+  },
+  "Acrobatics": {
+    "modifier": "dex"
+  },
+  "Stealth": {
+    "modifier": "dex"
+  },
+  "Ranged": {
+    "modifier": "dex"
+  },
+  "Arcana": {
+    "modifier": "int"
+  },
+  "History": {
+    "modifier": "int"
+  },
+  "Nature": {
+    "modifier": "int"
+  },
+  "Animal": {
+    "modifier": "wis"
+  },
+  "Survival": {
+    "modifier": "wis"
+  },
+  "Religion": {
+    "modifier": "wis"
+  },
+  "Deception": {
+    "modifier": "cha"
+  },
+  "Performance": {
+    "modifier": "cha"
+  },
+  "Persuasion": {
+    "modifier": "cha"
+  }
+}
