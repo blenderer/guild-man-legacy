@@ -4,6 +4,7 @@ let names = require("../testdata/names");
 let classes = require("../testdata/classes");
 let races = require("../testdata/races");
 let skills = require("../testdata/skills");
+let traits = require("../testdata/traits");
 let stats = require("../testdata/stats");
 let defaultCharacterProps = require("../testdata/characterprops");
 let characterOverrideValidations = require("../testdata/characteroverridevalidations");
@@ -16,6 +17,7 @@ class RandomCharacter  {
     this.level = null;
     this.class = null;
     this.race = null;
+    this.traits = [];
 
 
     if (!this.name) {
@@ -42,6 +44,18 @@ class RandomCharacter  {
     // roll stats using 3d6 method
     for (var stat in stats) {
       this.stats[stat] = new Roll("3d6").total;
+    }
+
+    // apply traits
+    let traitAmount = getRandomIntInclusive(1, 2);
+
+    this.traits = [];
+    let traitArray = Object.keys(traits);
+
+    for (let i = 1; i <= traitAmount; i++) {
+
+      let traitPick = getRandomIntInclusive(0, traitArray.length - 1);
+      this.traits.push(traitArray[traitPick]);
     }
 
     // apply overrides
