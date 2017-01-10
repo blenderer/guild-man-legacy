@@ -1,7 +1,7 @@
-import classes from "./classes";
-import races from "./races";
-import stats from "./stats";
-import skills from "./skills";
+let classes = require("./classes");
+let races = require("./races");
+let stats = require("./stats");
+let skills = require("./skills");
 
 let validations = {
   "level": (providedValue) => {
@@ -55,4 +55,4 @@ let validations = {
   }
 };
 
-export default validations;
+module.exports = validations;

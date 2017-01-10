@@ -1,13 +1,13 @@
 'use strict';
 
-import names from "../testdata/names";
-import classes from "../testdata/classes";
-import races from "../testdata/races";
-import skills from "../testdata/skills";
-import stats from "../testdata/stats";
-import defaultCharacterProps from "../testdata/characterprops";
-import characterOverrideValidations from "../testdata/characteroverridevalidations";
-import Roll from "./Roll";
+let names = require("../testdata/names");
+let classes = require("../testdata/classes");
+let races = require("../testdata/races");
+let skills = require("../testdata/skills");
+let stats = require("../testdata/stats");
+let defaultCharacterProps = require("../testdata/characterprops");
+let characterOverrideValidations = require("../testdata/characteroverridevalidations");
+let Roll = require("./Roll");
 
 class RandomCharacter  {
   constructor(overrides = {}) {
@@ -68,4 +68,4 @@ function getRandomIntInclusive(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
-export default RandomCharacter;
+module.exports = RandomCharacter;
