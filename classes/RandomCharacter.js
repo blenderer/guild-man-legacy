@@ -47,16 +47,13 @@ class RandomCharacter  {
     }
 
     // apply traits
-    let traitAmount = getRandomIntInclusive(1, 2);
+    let traitAmount = getRandomIntInclusive(0, 2);
 
     this.traits = [];
     let traitArray = Object.keys(traits);
 
-    for (let i = 1; i <= traitAmount; i++) {
-
-      let traitPick = getRandomIntInclusive(0, traitArray.length - 1);
-      this.traits.push(traitArray[traitPick]);
-    }
+    let uniqueTraits = getUniqueArrayItems(traitArray, traitAmount);
+    this.traits = this.traits.concat(uniqueTraits);
 
     // apply overrides
     this.applyOverrides(overrides);
@@ -73,6 +70,23 @@ class RandomCharacter  {
   }
 
 }
+
+function getUniqueArrayItems(collection, amount = 1) {
+  let foundItems = [];
+
+  while (foundItems.length < amount) {
+    let randomTryIndex = getRandomIntInclusive(0, collection.length - 1);
+    let random = collection[randomTryIndex];
+
+    if (foundItems.indexOf(random) === -1) {
+      foundItems.push(random);
+    }
+  }
+
+  return foundItems;
+}
+
+
 
 // Returns a random integer between min (included) and max (included)
 // Using Math.round() will give you a non-uniform distribution!

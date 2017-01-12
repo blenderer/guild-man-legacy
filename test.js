@@ -1,10 +1,16 @@
+'use strict';
 
-let RandomCharacter = require('./utilityclasses/RandomCharacter');
+let GuildManApp = require('./classes/App');
+let RandomCharacter = require('./classes/RandomCharacter');
 
 
-let adventurers = [];
-for (var i = 0; i < 5; i++) {
-  adventurers.push(new RandomCharacter());
-}
+let app = new GuildManApp('new');
 
-console.log(adventurers);
+console.log(app);
+
+// let adventurers = [];
+// for (var i = 0; i < 5; i++) {
+//   adventurers.push(new RandomCharacter());
+// }
+//
+// console.log(adventurers);
