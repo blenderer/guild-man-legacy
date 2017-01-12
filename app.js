@@ -4,7 +4,7 @@ let GuildManApp = require('./classes/App');
 let RandomCharacter = require('./classes/RandomCharacter');
 
 
-let app = new GuildManApp('new');
+let app = new GuildManApp();
 
 console.log(app);
 

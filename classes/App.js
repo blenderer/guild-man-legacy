@@ -9,8 +9,6 @@ class GuildManApp {
 
     this.guild = new Guild();
     this.tavern = new Tavern();
-
-    this.activeQuests = [];
   }
 }
 

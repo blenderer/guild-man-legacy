@@ -1,13 +1,13 @@
 'use strict';
 
-let names = require("../testdata/names");
-let classes = require("../testdata/classes");
-let races = require("../testdata/races");
-let skills = require("../testdata/skills");
-let traits = require("../testdata/traits");
-let stats = require("../testdata/stats");
-let defaultCharacterProps = require("../testdata/characterprops");
-let characterOverrideValidations = require("../testdata/characteroverridevalidations");
+let names = require("../data/names");
+let classes = require("../data/classes");
+let races = require("../data/races");
+let skills = require("../data/skills");
+let traits = require("../data/traits");
+let stats = require("../data/stats");
+let defaultCharacterProps = require("../data/characterprops");
+let characterOverrideValidations = require("../data/characteroverridevalidations");
 let Roll = require("./Roll");
 
 class RandomCharacter  {

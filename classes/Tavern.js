@@ -1,10 +1,10 @@
 'use strict';
 
-class Guild {
+class Tavern {
   constructor() {
-    this.members = [];
-    this.inventory = [];
+    this.charactersForHire = [];
+    this.availableQuests = [];
   }
 }
 
-module.exports = Guild;
+module.exports = Tavern;
