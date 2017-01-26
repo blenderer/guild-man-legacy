@@ -1,0 +1,22 @@
+{
+  "name": "guild-man",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/blenderer/guild-man.git"
+  },
+  "author": "http://twitter.com/Blenderer",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/blenderer/guild-man/issues"
+  },
+  "homepage": "https://github.com/blenderer/guild-man#readme",
+  "dependencies": {
+    "ramda": "^0.23.0"
+  }
+}
