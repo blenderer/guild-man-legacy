@@ -3,10 +3,20 @@
 let GuildManApp = require('./classes/App');
 let RandomCharacter = require('./classes/RandomCharacter');
 
+let app;
 
-let app = new GuildManApp();
+let getGameState = Promise.reject('404');
 
-console.log(app);
+getGameState.then(response => {
+  app = new GuildManApp(response.gameState);
+}).catch(error => {
+  if (error === '404') {
+    app = new GuildManApp();
+    app.firstStart();
+    console.log(app);
+  }
+
+});
 
 // let adventurers = [];
 // for (var i = 0; i < 5; i++) {
