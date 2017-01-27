@@ -9,6 +9,8 @@ let stats = require("../data/stats");
 let defaultCharacterProps = require("../data/characterprops");
 let characterOverrideValidations = require("../data/characteroverridevalidations");
 let Roll = require("./Roll");
+let mathHelpers = require('../helpers/math');
+const getRandomIntInclusive = mathHelpers.getRandomIntInclusive;
 
 class RandomCharacter  {
   constructor(overrides = {}) {
@@ -86,14 +88,5 @@ function getUniqueArrayItems(collection, amount = 1) {
   return foundItems;
 }
 
-
-
-// Returns a random integer between min (included) and max (included)
-// Using Math.round() will give you a non-uniform distribution!
-function getRandomIntInclusive(min, max) {
-  min = Math.ceil(min);
-  max = Math.floor(max);
-  return Math.floor(Math.random() * (max - min + 1)) + min;
-}
 
 module.exports = RandomCharacter;

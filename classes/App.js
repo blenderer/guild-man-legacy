@@ -2,6 +2,7 @@
 
 let Guild = require('./Guild');
 let Tavern = require('./Tavern');
+let Outcome = require('./Outcome');
 
 class GuildManApp {
   constructor(gameState = {}) {
@@ -16,6 +17,11 @@ class GuildManApp {
     this.tavern.refreshHires();
     this.tavern.refreshQuests();
     this.guild.gold += 100;
+
+    let quest = this.tavern.availableQuests;
+    let party = this.tavern.charactersForHire.slice(0, 3);
+
+    console.log(new Outcome(quest, party));
   }
 
   run() {

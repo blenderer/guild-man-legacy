@@ -14,7 +14,6 @@ getGameState.then(response => {
     app = new GuildManApp();
     app.firstStart();
     app.run();
-    console.log(app);
 
 
     // ON 'Quest accepted'
