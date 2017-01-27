@@ -13,7 +13,15 @@ getGameState.then(response => {
   if (error === '404') {
     app = new GuildManApp();
     app.firstStart();
+    app.run();
     console.log(app);
+
+
+    // ON 'Quest accepted'
+    // new timer() ?
+
+    // ON 'Quest Concluded' (data.quest, data.party)
+    // new Outcome(data.quest, data.party)
   }
 
 });

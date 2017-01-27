@@ -17,6 +17,10 @@ class GuildManApp {
     this.tavern.refreshQuests();
     this.guild.gold += 100;
   }
+
+  run() {
+    //
+  }
 }
 
 module.exports = GuildManApp;

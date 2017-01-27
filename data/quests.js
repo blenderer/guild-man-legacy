@@ -1,5 +1,10 @@
-let quests = {
-  
-};
+let quests = [
+  {
+    "name": "Hunt Boars",
+    "reward": {
+      "gold": "3d100"
+    }
+  }
+];
 
-modules.exports = quests;
+module.exports = quests;

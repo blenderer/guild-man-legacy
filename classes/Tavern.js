@@ -1,6 +1,7 @@
 'use strict';
 
 let RandomCharacter = require('./RandomCharacter');
+let quests = require('../data/quests');
 
 const FOR_HIRE_LIMIT = 10;
 
@@ -21,6 +22,7 @@ class Tavern {
   }
 
   refreshQuests() {
+    this.availableQuests.push(quests[0]);
 
     return this.availableQuests;
   }
