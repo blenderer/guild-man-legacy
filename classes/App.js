@@ -21,7 +21,7 @@ class GuildManApp {
     let quest = this.tavern.availableQuests;
     let party = this.tavern.charactersForHire.slice(0, 3);
 
-    console.log(new Outcome(quest, party));
+    new Outcome(quest, party).getResult();
   }
 
   run() {

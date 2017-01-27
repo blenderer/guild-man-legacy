@@ -8,21 +8,29 @@ const GLOBAL_CHALLENGE_FAILURE_RATE = 0.5;
 
 class Outcome {
   constructor(quest, party) {
-    for (let x=0; x<20; x++) {
-      let instaFailRoll = getRandomIntInclusive(0, 100);
-
-      if (instaFailRoll <= GLOBAL_FAILURE_RATE * 100) {
-        console.log('failed');
-      } else {
-        console.log('success!');
-      }
+    if (!this._passesGlobalFailure()) {
+      this.success = false;
+      return false;
     }
-
 
   }
 
   _resolveChallenge(quest) {
 
+  }
+
+  _passesGlobalFailure() {
+    let instaFailRoll = getRandomIntInclusive(0, 100);
+
+    if (instaFailRoll <= GLOBAL_FAILURE_RATE * 100) {
+      return false;
+    } else {
+      return true;
+    }
+  }
+
+  getResult() {
+    return this.success;
   }
 }
 
