@@ -18,10 +18,11 @@ class GuildManApp {
     this.tavern.refreshQuests();
     this.guild.gold += 100;
 
-    let quest = this.tavern.availableQuests;
-    let party = this.tavern.charactersForHire.slice(0, 3);
+    // testing outcomes
+    let quest = this.tavern.availableQuests[0];
+    let party = this.tavern.charactersForHire.slice(0, 3); // temporary
 
-    new Outcome(quest, party).getResult();
+    console.log(new Outcome(quest, party).getOutcome());
   }
 
   run() {
