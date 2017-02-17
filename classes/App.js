@@ -22,7 +22,7 @@ class GuildManApp {
     let quest = this.tavern.availableQuests[0];
     let party = this.tavern.charactersForHire.slice(0, 3); // temporary
 
-    console.log(new Outcome(quest, party).getOutcome());
+    new Outcome(quest, party).getOutcome();
   }
 
   run() {

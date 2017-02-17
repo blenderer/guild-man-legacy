@@ -3,7 +3,7 @@
 const R = require('ramda');
 const getRandomIntInclusive = require('../helpers/math').getRandomIntInclusive;
 
-const GLOBAL_FAILURE_RATE = 0.5;
+const GLOBAL_FAILURE_RATE = 0.08;
 const GLOBAL_CHALLENGE_FAILURE_RATE = 0.45;
 
 const OUTCOMES = {
@@ -27,31 +27,36 @@ class Outcome {
     this.quest = quest;
     this.party = party;
 
+    this.negativeOutcomeOdds = 0;
+    this.postitiveOutcomeOdds = 0;
+
     if (!this._passesGlobalFailure()) {
       this.outcome = OUTCOMES.GLOBAL_FAILURE;
       return false;
     }
+
+    this._applyPartyOdds();
+    this._applyQuestOdds();
 
     if (!this._passesQuest()) {
       this.outcome = OUTCOMES.PARTY_FAILURE;
       return false;
     }
 
+
+
     this.outcome = OUTCOMES.SUCCESS;
   }
 
-  _passesQuest() {
-    let partyPower = this.party.reduce((total, character) => {
+  _applyPartyOdds() {
+    this.postitiveOutcomeOdds += this.party.reduce((total, character) => {
       return total + character.level;
     }, 0);
+  }
 
-    let postitiveTotal = partyPower + this.quest.difficulty['+'];
-    let negativeTotal = this.quest.difficulty['-'];
-
-    let outcomeTableDenominator = postitiveTotal + negativeTotal;
-    let outcome = getRandomIntInclusive(1, outcomeTableDenominator);
-
-    return outcome > negativeTotal;
+  _applyQuestOdds() {
+    this.postitiveOutcomeOdds += this.quest.difficulty['+'];
+    this.negativeOutcomeOdds += this.quest.difficulty['-'];
   }
 
   _passesGlobalFailure() {
@@ -62,6 +67,13 @@ class Outcome {
     } else {
       return true;
     }
+  }
+
+  _passesQuest() {
+    let outcomeTableDenominator = this.negativeOutcomeOdds + this.postitiveOutcomeOdds;
+    let outcome = getRandomIntInclusive(1, outcomeTableDenominator);
+
+    return outcome > this.negativeOutcomeOdds;
   }
 
   getOutcome() {
