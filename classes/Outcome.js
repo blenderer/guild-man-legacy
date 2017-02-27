@@ -37,6 +37,7 @@ class Outcome {
 
     this._applyPartyOdds();
     this._applyQuestOdds();
+    this._applyChallengeOdds();
 
     if (!this._passesQuest()) {
       this.outcome = OUTCOMES.PARTY_FAILURE;
@@ -46,6 +47,37 @@ class Outcome {
 
 
     this.outcome = OUTCOMES.SUCCESS;
+  }
+
+  _applyChallengeOdds() {
+    let challengeAdvantage = 0;
+
+    this.quest.challenges.forEach((challenge) => {
+
+      // check the challenge's type
+      if (challenge.type === 'match') {
+        this.party.forEach((adventurer) => {
+          const adventurerValue = adventurer[challenge.category];
+
+          // check array for value
+          if (Array.isArray(adventurerValue)) {
+            if (R.contains(challenge.value, adventurerValue)) {
+              challengeAdvantage += challenge.worth;
+            }
+          }
+          // check string for value
+          else if (typeof adventurerValue === 'string' || typeof adventurerValue === 'number') {
+            if (challenge.value === adventurerValue) {
+              challengeAdvantage += challenge.worth;
+            }
+          }
+        });
+      }
+    });
+
+    console.log(challengeAdvantage);
+
+    this.postitiveOutcomeOdds += challengeAdvantage;
   }
 
   _applyPartyOdds() {

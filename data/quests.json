@@ -13,8 +13,13 @@
         "type": "match",
         "category": "class",
         "value": "Hunter",
-        "worth": 1,
-        "success": "Your Hunter: {Character} tracked the one of the Boars to a nest in the deep of the woods and was able to eliminate the majority of them there."
+        "worth": 1
+      },
+      {
+        "type": "match",
+        "category": "traits",
+        "value": "Sniper",
+        "worth": 1
       }
     ]
   }
