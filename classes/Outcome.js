@@ -30,23 +30,18 @@ class Outcome {
     this.negativeOutcomeOdds = 0;
     this.postitiveOutcomeOdds = 0;
 
-    if (!this._passesGlobalFailure()) {
-      this.outcome = OUTCOMES.GLOBAL_FAILURE;
-      return false;
-    }
-
     this._applyPartyOdds();
     this._applyQuestOdds();
     this._applyChallengeOdds();
+    this._applyGlobalFailureOdds();
 
     if (!this._passesQuest()) {
       this.outcome = OUTCOMES.PARTY_FAILURE;
       return false;
+    } else {
+      this.outcome = OUTCOMES.SUCCESS;
+      return true;
     }
-
-
-
-    this.outcome = OUTCOMES.SUCCESS;
   }
 
   _applyChallengeOdds() {
@@ -75,8 +70,6 @@ class Outcome {
       }
     });
 
-    console.log(challengeAdvantage);
-
     this.postitiveOutcomeOdds += challengeAdvantage;
   }
 
@@ -91,19 +84,22 @@ class Outcome {
     this.negativeOutcomeOdds += this.quest.difficulty['-'];
   }
 
-  _passesGlobalFailure() {
-    let instaFailRoll = getRandomIntInclusive(0, 100);
+  _applyGlobalFailureOdds() {
+    let globalFailureOdds = this.quest.difficulty['+'] * GLOBAL_FAILURE_RATE;
 
-    if (instaFailRoll <= GLOBAL_FAILURE_RATE * 100) {
-      return false;
-    } else {
-      return true;
-    }
+    this.negativeOutcomeOdds += Math.ceil(globalFailureOdds);
   }
 
   _passesQuest() {
     let outcomeTableDenominator = this.negativeOutcomeOdds + this.postitiveOutcomeOdds;
     let outcome = getRandomIntInclusive(1, outcomeTableDenominator);
+
+    console.log(`
+      positive outlier: ${this.postitiveOutcomeOdds},
+      fail <= ${this.negativeOutcomeOdds},
+      roll: ${outcome},
+      outcome: ${outcome > this.negativeOutcomeOdds}
+    `);
 
     return outcome > this.negativeOutcomeOdds;
   }
