@@ -18,9 +18,11 @@
   "homepage": "https://github.com/blenderer/guild-man#readme",
   "dependencies": {
     "firebase": "^4.1.1",
+    "material-ui": "^0.18.1",
     "ramda": "^0.23.0",
     "react": "^15.5.4",
-    "react-dom": "^15.5.4"
+    "react-dom": "^15.5.4",
+    "react-tap-event-plugin": "^2.0.1"
   },
   "devDependencies": {
     "babel-core": "^6.24.0",
