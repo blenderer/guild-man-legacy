@@ -2,7 +2,14 @@ const GuildManApp = require('./classes/App');
 const RandomCharacter = require('./classes/RandomCharacter');
 const firebase = require('firebase');
 
+import React from 'react';
+import { render } from 'react-dom';
+
+import App from './app/App';
+
 let app;
+
+render(<App/>, document.getElementById('app'));
 
 
 const fb = firebase.initializeApp({

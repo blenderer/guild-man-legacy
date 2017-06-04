@@ -18,12 +18,16 @@
   "homepage": "https://github.com/blenderer/guild-man#readme",
   "dependencies": {
     "firebase": "^4.1.1",
-    "ramda": "^0.23.0"
+    "ramda": "^0.23.0",
+    "react": "^15.5.4",
+    "react-dom": "^15.5.4"
   },
   "devDependencies": {
     "babel-core": "^6.24.0",
     "babel-loader": "^6.4.1",
     "babel-preset-env": "^1.2.2",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
     "webpack": "^2.2.1"
   }
 }
