@@ -94,12 +94,12 @@ class Outcome {
     let outcomeTableDenominator = this.negativeOutcomeOdds + this.postitiveOutcomeOdds;
     let outcome = getRandomIntInclusive(1, outcomeTableDenominator);
 
-    console.log(`
-      positive outlier: ${this.postitiveOutcomeOdds},
-      fail <= ${this.negativeOutcomeOdds},
-      roll: ${outcome},
-      outcome: ${outcome > this.negativeOutcomeOdds}
-    `);
+    // console.log(`
+    //   positive outlier: ${this.postitiveOutcomeOdds},
+    //   fail <= ${this.negativeOutcomeOdds},
+    //   roll: ${outcome},
+    //   outcome: ${outcome > this.negativeOutcomeOdds}
+    // `);
 
     return outcome > this.negativeOutcomeOdds;
   }

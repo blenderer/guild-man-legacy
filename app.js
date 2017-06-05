@@ -16,9 +16,6 @@ injectTapEventPlugin();
 
 let app;
 
-render(<App/>, document.getElementById('app'));
-
-
 const fb = firebase.initializeApp({
   apiKey: 'AIzaSyC06X1CKO5K1h3YInUCyjnzblE0q1lwxLQ',
   authDomain: 'guild-man.firebaseapp.com',
@@ -28,10 +25,13 @@ const fb = firebase.initializeApp({
 });
 
 const db = fb.database();
-const activeQuests = db.ref('/activeQuests/');
+const activeQuestsRef = db.ref('/activeQuests/');
 
-activeQuests.once('value').then((snapshot) => {
-  console.log(snapshot.val());
+let activeQuests = [];
+
+activeQuestsRef.once('value').then((snapshot) => {
+  activeQuests = snapshot.val();
+  render(<App activeQuests={activeQuests}/>, document.getElementById('app'));
 });
 
 let getGameState = Promise.reject('404');
@@ -61,3 +61,5 @@ getGameState.then(response => {
 // }
 //
 // console.log(adventurers);
+
+render(<App activeQuests={activeQuests}/>, document.getElementById('app'));
