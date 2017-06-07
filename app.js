@@ -1,10 +1,15 @@
 const GuildManApp = require('./classes/App');
 const RandomCharacter = require('./classes/RandomCharacter');
-const firebase = require('firebase');
 
 import React from 'react';
 import { render } from 'react-dom';
 import injectTapEventPlugin from 'react-tap-event-plugin';
+
+import { Provider, connect } from 'react-redux';
+import { createStore } from 'redux'
+import reducer from './app/reducers';
+
+import Firebase from './app/firebase';
 
 
 import App from './app/App';
@@ -15,24 +20,6 @@ injectTapEventPlugin();
 
 
 let app;
-
-const fb = firebase.initializeApp({
-  apiKey: 'AIzaSyC06X1CKO5K1h3YInUCyjnzblE0q1lwxLQ',
-  authDomain: 'guild-man.firebaseapp.com',
-  databaseURL: 'https://guild-man.firebaseio.com',
-  storageBucket: 'guild-man.appspot.com',
-  messagingSenderId: '134513670784'
-});
-
-const db = fb.database();
-const activeQuestsRef = db.ref('/activeQuests/');
-
-let activeQuests = [];
-
-activeQuestsRef.once('value').then((snapshot) => {
-  activeQuests = snapshot.val();
-  render(<App activeQuests={activeQuests}/>, document.getElementById('app'));
-});
 
 let getGameState = Promise.reject('404');
 
@@ -62,4 +49,12 @@ getGameState.then(response => {
 //
 // console.log(adventurers);
 
-render(<App activeQuests={activeQuests}/>, document.getElementById('app'));
+
+const store = createStore(reducer);
+Firebase(store);
+
+render(
+  <Provider store={store}>
+    <App activeQuests={[]}/>
+  </Provider>
+, document.getElementById('app'));

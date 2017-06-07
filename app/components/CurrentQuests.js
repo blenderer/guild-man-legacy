@@ -1,12 +1,9 @@
 import React from 'react';
 
 class CurrentQuests extends React.Component {
-  constructor (props) {
-    super(props);
-  }
 
   componentWillReceiveProps (nextProps) {
-    console.log(nextProps.activeQuests);
+
   }
 
   render () {
