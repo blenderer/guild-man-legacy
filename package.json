@@ -15,6 +15,9 @@
   "bugs": {
     "url": "https://github.com/blenderer/guild-man/issues"
   },
+  "scripts": {
+    "start": "webpack-dev-server --progress --colors"
+  },
   "homepage": "https://github.com/blenderer/guild-man#readme",
   "dependencies": {
     "firebase": "^4.1.1",

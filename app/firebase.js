@@ -8,25 +8,31 @@ const firebaseApp = firebase.initializeApp({
 });
 
 const db = firebaseApp.database();
-const activeQuestsRef = db.ref('/activeQuests/');
+const activeQuestsRef = db.ref('activeQuests');
 
 export const ACTIVE_QUESTS_UPDATE = 'ACTIVE_QUESTS_UPDATE';
 
-export const addQuest = (name, duration) => {
+export const addQuest = (questName, duration, start) => {
   db.ref(`/activeQuests/${activeQuestsRef.push().key}/`).set({
-    name,
-    duration
+    questName,
+    duration,
+    start
   });
 }
 
 function Firebase (store) {
 
-  activeQuestsRef.on('value', (snapshot) => {
-    const value = snapshot.val();
+  var scoresRef = firebase.database().ref("activeQuests");
+
+  activeQuestsRef.orderByKey().on('value', (snapshot) => {
+    const values = [];
+    snapshot.forEach((data) => {
+      values.push(data.val());
+    });
 
     store.dispatch({
       type: ACTIVE_QUESTS_UPDATE,
-      updatedItems: value
+      updatedItems: values
     });
   });
 }

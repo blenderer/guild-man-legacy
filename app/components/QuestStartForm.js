@@ -25,12 +25,12 @@ class QuestStartForm extends React.Component {
 
   handleDuration (event) {
     this.setState({
-      duration: event.target.value,
+      duration: event.target.value * 1,
     });
   }
 
   onClick () {
-    this.props.onClick(this.state.name, this.state.duration);
+    this.props.onClick(this.state.name, this.state.duration , new Date().getTime());
   }
 
   render () {

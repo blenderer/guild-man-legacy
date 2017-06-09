@@ -12,8 +12,8 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {
-    onClick: (text, duration) => {
-      addQuest(text, duration);
+    onClick: (text, duration, start) => {
+      addQuest(text, duration, start);
     }
   }
 }
