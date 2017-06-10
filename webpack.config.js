@@ -6,16 +6,13 @@ module.exports = {
     filename: "bundle.js"
   },
   module: {
-    rules: [
+    loaders: [
       {
         test: /\.js$/,
-        exclude: /(node_modules|bower_components)/,
-        use: {
-          loader: 'babel-loader',
-          options: {
-            presets: ['env'],
-            plugins: [require('babel-plugin-transform-object-rest-spread')]
-          }
+        exclude: /node_modules/,
+        loader: 'babel-loader',
+        query: {
+          presets: ['es2015', 'react', 'stage-0']
         }
       }
     ]

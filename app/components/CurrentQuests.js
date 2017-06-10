@@ -1,25 +1,23 @@
 import React from 'react';
 
+import Quest from './Quest';
+
 class CurrentQuests extends React.Component {
 
   componentWillReceiveProps (nextProps) {
 
   }
 
+  componentDidMount (props) {
+
+  }
+
   render () {
     return (
       <ul>
-        {this.props.activeQuests.map((quest, index) => {
-          let remaining = (quest.start + quest.duration) - new Date().getTime();
-
-          if (remaining < 0) {
-            remaining = 'expired'
-          } else {
-            remaining = remaining + ' remaining';
-          }
-
-          return <li key={index}>{quest.questName}, {remaining}</li>
-        })}
+        {this.props.activeQuests.map((quest, index) =>
+          <Quest key={index} {...quest} />
+        )}
       </ul>
     );
   }

@@ -24,7 +24,7 @@ function Firebase (store) {
 
   var scoresRef = firebase.database().ref("activeQuests");
 
-  activeQuestsRef.orderByKey().on('value', (snapshot) => {
+  activeQuestsRef.orderByChild('start').on('value', (snapshot) => {
     const values = [];
     snapshot.forEach((data) => {
       values.push(data.val());
@@ -32,7 +32,7 @@ function Firebase (store) {
 
     store.dispatch({
       type: ACTIVE_QUESTS_UPDATE,
-      updatedItems: values
+      updatedItems: values.reverse()
     });
   });
 }
