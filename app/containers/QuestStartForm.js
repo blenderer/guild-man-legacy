@@ -5,16 +5,12 @@ import QuestStartForm from '../components/QuestStartForm'
 import { addQuest } from '../firebase';
 
 const mapStateToProps = (state, ownProps) => {
-  return {
-    bla: true
-  }
+  return {}
 }
 
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {
-    onClick: (text, duration, start) => {
-      addQuest(text, duration, start);
-    }
+    onClick: addQuest
   }
 }
 

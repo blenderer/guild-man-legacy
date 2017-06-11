@@ -12,7 +12,7 @@ import reducer from './app/reducers';
 import Firebase from './app/firebase';
 
 
-import App from './app/App';
+import App from './app/containers/App';
 
 // Needed for onTouchTap
 // http://stackoverflow.com/a/34015469/988941
@@ -55,6 +55,6 @@ Firebase(store);
 
 render(
   <Provider store={store}>
-    <App activeQuests={[]}/>
+    <App />
   </Provider>
 , document.getElementById('app'));

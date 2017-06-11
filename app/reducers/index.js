@@ -1,4 +1,4 @@
-import { ACTIVE_QUESTS_UPDATE } from '../firebase';
+import { ACTIVE_QUESTS_UPDATE, AUTH_UPDATE } from '../firebase';
 
 const actionHandlers = {
   [ACTIVE_QUESTS_UPDATE]: (state, action) => {
@@ -6,11 +6,18 @@ const actionHandlers = {
       ...state,
       activeQuests: action.updatedItems
     };
+  },
+  [AUTH_UPDATE] : (state, action) => {
+    return {
+      ...state,
+      user: action.user
+    };
   }
 };
 
 const initialState = {
-  activeQuests: []
+  activeQuests: [],
+  user: null
 };
 
 export default (state = initialState, action) => {

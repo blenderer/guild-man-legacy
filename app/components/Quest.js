@@ -20,7 +20,11 @@ class Quest extends React.Component {
   }
 
   componentDidMount () {
-    setInterval(this.tick, 1000);
+    this.interval = setInterval(this.tick, 1000);
+  }
+
+  componentWillUnmount () {
+    clearInterval(this.interval);
   }
 
   tick () {
