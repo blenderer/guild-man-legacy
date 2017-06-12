@@ -5,12 +5,14 @@ import QuestStartForm from '../components/QuestStartForm'
 import { addQuest } from '../firebase';
 
 const mapStateToProps = (state, ownProps) => {
-  return {}
+  return {
+    uid: state.user.uid
+  }
 }
 
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {
-    onClick: addQuest
+    submit: addQuest
   }
 }
 

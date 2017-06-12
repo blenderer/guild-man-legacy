@@ -14,18 +14,12 @@ const twitterAuthProvider = new firebase.auth.TwitterAuthProvider();
 export const ACTIVE_QUESTS_UPDATE = 'ACTIVE_QUESTS_UPDATE';
 export const AUTH_UPDATE = 'AUTH_UPDATE';
 
-export const addQuest = (questName, duration, start) => {
-  db.ref(`/activeQuests/${activeQuestsRef.push().key}/`).set({
-    questName,
-    duration,
-    start
-  });
+export const addQuest = (dataForm) => {
+  return db.ref(`/activeQuests/${activeQuestsRef.push().key}/`).set(dataForm);
 }
 
 export const loginTwitter = () => {
-  firebase.auth().signInWithPopup(twitterAuthProvider).then((result) => {
-    
-  });
+  firebase.auth().signInWithPopup(twitterAuthProvider);
 }
 
 function Firebase (store) {
