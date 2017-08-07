@@ -1,5 +1,5 @@
 const GuildManApp = require('./classes/App');
-const RandomCharacter = require('./classes/RandomCharacter');
+import RandomCharacter from './classes/RandomCharacter';
 
 import React from 'react';
 import { render } from 'react-dom';
@@ -28,9 +28,9 @@ getGameState.then(response => {
   app = new GuildManApp(response.gameState);
 }).catch(error => {
   if (error === '404') {
-    app = new GuildManApp();
-    app.firstStart();
-    app.run();
+    // app = new GuildManApp();
+    // app.firstStart();
+    // app.run();
 
 
     // ON 'Quest accepted'

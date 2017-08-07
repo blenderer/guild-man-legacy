@@ -12,7 +12,7 @@ let Roll = require("./Roll");
 let mathHelpers = require('../helpers/math');
 const getRandomIntInclusive = mathHelpers.getRandomIntInclusive;
 
-class RandomCharacter  {
+export default class RandomCharacter  {
   constructor(overrides = {}) {
     this.stats = {};
     this.name = null;
@@ -87,6 +87,3 @@ function getUniqueArrayItems(collection, amount = 1) {
 
   return foundItems;
 }
-
-
-module.exports = RandomCharacter;

@@ -5,6 +5,7 @@ import RaisedButton from 'material-ui/RaisedButton'
 import QuestStartForm from './containers/QuestStartForm';
 import LoginForm from './containers/LoginForm';
 import CurrentQuests from './containers/CurrentQuests';
+import Guild from './containers/Guild';
 
 class App extends React.Component {
   renderLogin () {
@@ -16,8 +17,9 @@ class App extends React.Component {
   renderApp () {
     return (
       <div>
-        <CurrentQuests />
-        <QuestStartForm />
+        {/* <CurrentQuests />
+        <QuestStartForm /> */}
+        <Guild />
       </div>
     )
   }
@@ -33,9 +35,7 @@ class App extends React.Component {
 
     return (
       <MuiThemeProvider>
-        <div>
-          {app}
-        </div>
+        {app}
       </MuiThemeProvider>
     );
   }

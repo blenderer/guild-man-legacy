@@ -1,5 +1,7 @@
 import { ACTIVE_QUESTS_UPDATE, AUTH_UPDATE } from '../firebase';
 
+import guild from '../../data/guild';
+
 const actionHandlers = {
   [ACTIVE_QUESTS_UPDATE]: (state, action) => {
     return {
@@ -17,7 +19,8 @@ const actionHandlers = {
 
 const initialState = {
   activeQuests: [],
-  user: null
+  user: null,
+  guild
 };
 
 export default (state = initialState, action) => {
