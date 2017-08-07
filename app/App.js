@@ -6,6 +6,7 @@ import QuestStartForm from './containers/QuestStartForm';
 import LoginForm from './containers/LoginForm';
 import CurrentQuests from './containers/CurrentQuests';
 import Guild from './containers/Guild';
+import Tavern from './containers/Tavern';
 
 class App extends React.Component {
   renderLogin () {
@@ -19,7 +20,11 @@ class App extends React.Component {
       <div>
         {/* <CurrentQuests />
         <QuestStartForm /> */}
+        Current Guild:
         <Guild />
+
+        Available Heroes in Tavern:
+        <Tavern />
       </div>
     )
   }

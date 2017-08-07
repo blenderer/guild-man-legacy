@@ -1,6 +1,7 @@
 import { ACTIVE_QUESTS_UPDATE, AUTH_UPDATE } from '../firebase';
 
 import guild from '../../data/guild';
+import RandomCharacter from '../../classes/RandomCharacter';
 
 const actionHandlers = {
   [ACTIVE_QUESTS_UPDATE]: (state, action) => {
@@ -17,10 +18,16 @@ const actionHandlers = {
   }
 };
 
+let adventurers = [];
+for (var i = 0; i < 5; i++) {
+  adventurers.push(new RandomCharacter());
+}
+
 const initialState = {
   activeQuests: [],
   user: null,
-  guild
+  guild,
+  tavern: adventurers
 };
 
 export default (state = initialState, action) => {

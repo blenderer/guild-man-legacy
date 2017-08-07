@@ -42,13 +42,6 @@ getGameState.then(response => {
 
 });
 
-// let adventurers = [];
-// for (var i = 0; i < 5; i++) {
-//   adventurers.push(new RandomCharacter());
-// }
-//
-// console.log(adventurers);
-
 
 const store = createStore(reducer);
 Firebase(store);
