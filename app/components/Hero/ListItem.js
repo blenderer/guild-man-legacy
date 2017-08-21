@@ -10,15 +10,14 @@ export default class HeroListItem extends React.Component {
   };
 
   render () {
-    const { hero, rightIcon } = this.props;
-
-    console.log(rightIcon);
+    const { hero, rightIcon, onClick } = this.props;
 
     let primaryText = hero.name;
     let secondaryText = `Level ${hero.level} ${hero.race} ${hero.class}`;
 
     return (
       <ListItem
+        onClick={onClick}
         primaryText={primaryText}
         secondaryText={secondaryText}
         rightIcon={rightIcon}

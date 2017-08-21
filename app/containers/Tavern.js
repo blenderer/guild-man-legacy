@@ -1,6 +1,7 @@
 import { connect } from 'react-redux'
 
 import Tavern from '../components/Tavern'
+import { hireTavernHero } from '../actions'
 
 const mapStateToProps = (state, ownProps) => {
   return {
@@ -8,8 +9,15 @@ const mapStateToProps = (state, ownProps) => {
   }
 }
 
+const mapDispatchToProps = (dispatch, ownProps) => {
+  return {
+    // hireTavernHero: dispatch(hireTavernHero)
+  };
+}
+
 const TavernContainer = connect(
-  mapStateToProps
+  mapStateToProps,
+  mapDispatchToProps
 )(Tavern);
 
 export default TavernContainer

@@ -3,7 +3,15 @@ import { ACTIVE_QUESTS_UPDATE, AUTH_UPDATE } from '../firebase';
 import guild from '../../data/guild';
 import RandomCharacter from '../../classes/RandomCharacter';
 
+import { HIRE_TAVERN_HERO } from '../actions';
+
 const actionHandlers = {
+  [HIRE_TAVERN_HERO]: (state, action) => {
+    return {
+      ...state,
+      guild: [action.payload, ...state.guild]
+    };
+  },
   [ACTIVE_QUESTS_UPDATE]: (state, action) => {
     return {
       ...state,
